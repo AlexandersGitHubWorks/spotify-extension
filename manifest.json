@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Spotify: Mute Advertisement",
+  "version": "0.1",
+  "description": "Mute Advertisement",
+  "icons": {
+    "48": "icons/logo.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "spotify@mute.ads",
+      "strict_min_version": "45.0"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.spotify.com/*"
+      ],
+      "js": [
+        "extension.js"
+      ]
+    }
+  ]
+}
