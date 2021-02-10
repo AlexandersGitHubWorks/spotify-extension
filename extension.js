@@ -1,13 +1,14 @@
-let volumeIcon = document.querySelector('.control-button.volume-bar__icon');
-
-let itWasAdvertisement = false;
-
-let isItAdvertisement, volumeIsOff;
+let volumeIcon, isItAdvertisement, volumeIsOff, itWasAdvertisement;
 
 let mutationObserver = new MutationObserver(function (mutations) {
+
+    if (volumeIcon == null) {
+        volumeIcon = document.querySelector('.control-button.volume-bar__icon-button');
+    }
+
     mutations.forEach(function (element) {
         isItAdvertisement = element.target.text.includes('Advertisement');
-        volumeIsOff = volumeIcon.className.includes('spoticon-volume-off');
+        volumeIsOff = (volumeIcon.getAttribute('aria-label') === "Unmute");
 
         if (isItAdvertisement && !itWasAdvertisement) {
             if (!volumeIsOff) {
